@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.commontime.cordova.appstate"
+        version="1.0.0">
+
+  <name>AppState</name>
+
+  <asset src="www/appstate.js" target="js/appstate.js"/>
+
+  <js-module src="www/appstate.js" name="appstate">
+    <clobbers target="appstate" />
+  </js-module>
+
+  <platform name="android">
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="AppState">
+        <param name="android-package" value="com.commontime.plugin.AppState"/>
+        <param name="onload" value="true" />
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/AppState.java" target-dir="src/com/commontime/plugin/"/>
+  </platform>
+
+  <platform name="ios">
+
+    <config-file target="config.xml" parent="/widget">
+      <feature name="AppState">
+        <param name="ios-package" value="AppState" />
+      </feature>
+    </config-file>
+
+    <header-file src="src/ios/AppState.h" target-dir="AppStatePlugin"/>
+    <source-file src="src/ios/AppState.m" target-dir="AppStatePlugin"/>
+
+  </platform>
+
+</plugin>
